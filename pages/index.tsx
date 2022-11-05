@@ -1,19 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import HeroHeader from '../components/HeroHeader'
 import Layout from '../components/Layout'
+import NewsletterSubscribe from '../components/NewsletterSubscribe'
+import Searchbar from '../components/Searchbar'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
     <Layout>
       <>
-      <section className="h-96 w-full bg-zinc-100 flex flex-col justify-center items-center">
-          <h1 className="text-5xl font-bold">Heehee</h1>
-        </section>
-        <section className=" w-full bg-zinc-100 py-5">
-          <div className="w-3/5 flex flex-col justify-center items-center">
-          <h1 className="text-5xl py-5">What is Heehee?</h1>
-          <p className="w-full ml-3 text-2xl">
+        <HeroHeader/>
+        <Searchbar/>
+        <section className="w-full py-5">
+          <div className="w-full lg:w-3/5 flex flex-col justify-center items-center">
+          <h1 className="text-2xl lg:text-5xl py-5">What is Heehee?</h1>
+          <p className="w-full px-10 lg:ml-10 text-md lg:text-2xl">
             Have you ever had an unfinished project and lost motivation to finish it, or wanted to contribute to someone else's but didn't know where to start?
             <br/>
             Heehee can help you! No more will you have to dig deep to find motivation to finish that 6-month project you've been forgetting about,
@@ -30,6 +32,7 @@ export default function Home() {
           </p>
           </div>
         </section>
+        <NewsletterSubscribe/>
         </>
         
     </Layout>
