@@ -8,19 +8,25 @@ datasource db {
 }
 
 model Project {
-  id      BigInt @id @default(autoincrement())
-  user_id BigInt
-  User    User   @relation(fields: [user_id], references: [id])
-  created DateTime 
+    User    User   @relation(fields: [user_id], references: [id])
   @@index([user_id], name: "user")
+
+  id     String @id @default(cuid())
+  title String
+  description String
+  githubLink String
+  user_id String
+  followers ProjectFollow[]
+  submitted DateTime 
 }
 
 model ProjectFollow {
     User    User   @relation(fields: [user_id], references: [id])
     Project Project @relation(fields: [project_id], references: [id])
 
-    user_id BigInt
-    project_id BigInt
+    user_id String
+    project_id String
+        @@id([user_id, project_id])
 }
 
 model Account {
@@ -54,11 +60,12 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
+  name          String
+  email         String    @unique
   emailVerified DateTime?
   image         String?
-  posts         Post[]
+  projects      Project[]
+  followedProjects ProjectFollow[]
   accounts      Account[]
   sessions      Session[]
 }

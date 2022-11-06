@@ -10,7 +10,6 @@ const Navigation = (props: Props) => {
         <Link href="/"><h1 className='text-2xl'>Heehee</h1></Link>
             <div className="flex flex-row gap-8 text-gray-600">
             <Link href="/projects" className="hover:text-black transition-all">View Projects</Link>
-            <p>About</p>
             <p>Contact</p>
             </div>
         </div>
