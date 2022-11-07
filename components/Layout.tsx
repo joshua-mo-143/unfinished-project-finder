@@ -8,6 +8,7 @@ type Props = {
 }
 
 const Layout = ({children}  : Props) => {
+  
   return (
 <>
 <Head>
@@ -17,6 +18,7 @@ const Layout = ({children}  : Props) => {
   <Navigation/>
   {children}
     <Footer/>
+
   </>
   )
 }

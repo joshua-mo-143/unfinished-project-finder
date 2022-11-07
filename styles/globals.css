@@ -28,3 +28,7 @@ a {
     background: black;
   }
 }
+
+.menu-dropdown > p + p {
+  border-top: 1px solid rgba(214,211, 209,0.8);
+}

@@ -1,23 +1,47 @@
 import React from 'react'
-import {getProviders, signIn} from 'next-auth/react'
+import {signIn, getCsrfToken, getProviders, getSession} from 'next-auth/react'
+import {GetServerSideProps} from 'next'
 
-type Props = {
-    getProviders: any
+type Providers = {
+    providers: Object[];
+    name: string;
+    id: Number;
 }
 
-const index = ({getProviders}: Props) => {
+const index = ({providers}: Providers) => {
   return (
-    <>
-    {Object.values(getProviders).map((provider: any) => (
-        <div key={provider.name}>
-            <button onClick={() => signIn(provider.id)}>
-                Sign in with {provider.name}
+    <div>
+      {Object.values(providers).map((provider: any) => {
+        return (
+          <div key={provider.name}>
+            <button onClick={() => signIn(provider.id, {callbackUrl: "/"})}>
+              Sign in with {provider.name}
             </button>
-        </div>
-
-    ))}
-    </>
+          </div>
+        );
+      })}
+      </div>
   )
 }
 
 export default index
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+
+    const { req } = context;
+    const session = await getSession({req});
+
+    if (session) {
+        return {
+          redirect: { destination: "/", permanent: true },
+        };
+      }
+    
+    return {
+      props: {
+        // @ts-ignore
+        providers: await getProviders(context),
+        csrfToken: await getCsrfToken(context),
+      },
+    };
+  }

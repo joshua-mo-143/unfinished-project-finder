@@ -16,12 +16,12 @@ const options = {
             // @ts-ignore
       clientId: process.env.GITHUB_ID,
                   // @ts-ignore
-      clientSecret: process.env.GITHUB_SECRET,
+      clientSecret: process.env.GITHUB_SECRET
     }),
   ],
   adapter: PrismaAdapter(prisma),
    secret: process.env.SECRET,
-   pages: {
-    signIn: '/login'
-   }
+    pages: {
+      signIn: '/login'
+    }
 };

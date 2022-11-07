@@ -1,8 +1,9 @@
 // lib/prisma.ts
+// @ts-nocheck
 import { PrismaClient } from '@prisma/client';
 
+
 let prisma: PrismaClient;
-let global: any;
 
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
