@@ -4,3 +4,4 @@
 - Build profile section
 - Build templated page for individual projects
 - Build CRUD forms for editing, deleting and submitting projects
+* build Github app from Github website to integrate with auth

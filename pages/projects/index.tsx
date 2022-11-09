@@ -22,7 +22,7 @@ const Index = ({projectsJSON}: Props) => {
   console.log(projectsJSON)
   return (
     <Layout>
-        <section className="p-10 flex flex-col lg:h-screen items-center gap-10">
+        <section className="p-10 flex w-full flex-col lg:min-h-screen items-center gap-10">
         <h1 className="text-3xl">View Projects</h1>
         <Searchbar/>
         {projectsJSON.length == 0 ? <p className="text-xl">No projects fit your search criteria :(</p> :

@@ -16,8 +16,8 @@ const Layout = ({children}  : Props) => {
     <meta name="description" content="Heehee, the #1 open source project finder app." />
   </Head>
   <Navigation/>
+
   {children}
-    <Footer/>
 
   </>
   )

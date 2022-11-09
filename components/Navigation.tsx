@@ -7,6 +7,7 @@ import DropdownMenu from './DropdownMenu'
 import DropdownItem from './DropdownItem'
 import NavigationItemMain from './NavigationItemMain'
 import NavigationItem from './NavigationItem';
+import DropdownLogout from './DropdownLogout'
 
 type Props = {}
 
@@ -26,14 +27,14 @@ const Navigation = (props: Props) => {
                 <DropdownItem linkText="Submit" linkUrl="projects/create"/>
               </DropdownMenu>
             </NavigationItem>
-            <p>Contact</p>
+            <Link href="/contact" className='hover:text-black transition-all'>Contact</Link>
             </div>
         </div>
         <div className="w-2/5 flex flex-row justify-around items-center h-full">
             <NavigationItemMain>
             <DropdownMenu>
               <DropdownItem linkText="Profile" linkUrl="/profile"/>
-            <DropdownItem linkText="Log Out" linkUrl="/logout"/>
+              <DropdownLogout/>
             </DropdownMenu>
             </NavigationItemMain>
           </div>

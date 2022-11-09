@@ -24,7 +24,7 @@ const NavigationItemMain = ({children}: Props) => {
                 }
                 </div>
                  :
-        <Link href="/login" className='hover:text-black transition-all'>Get Started</Link>
+        <Link href="/login" className='hover:text-black text-stone-500 transition-all'>Sign In</Link>
             }
         </>
             

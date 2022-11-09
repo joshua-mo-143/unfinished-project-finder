@@ -16,17 +16,6 @@ model Project {
   description String
   githubLink String
   user_id String
-  followers ProjectFollow[]
-  submitted DateTime 
-}
-
-model ProjectFollow {
-    User    User   @relation(fields: [user_id], references: [id])
-    Project Project @relation(fields: [project_id], references: [id])
-
-    user_id String
-    project_id String
-        @@id([user_id, project_id])
 }
 
 model Account {
@@ -65,7 +54,6 @@ model User {
   emailVerified DateTime?
   image         String?
   projects      Project[]
-  followedProjects ProjectFollow[]
   accounts      Account[]
   sessions      Session[]
 }
