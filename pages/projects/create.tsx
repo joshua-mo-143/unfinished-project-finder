@@ -14,7 +14,7 @@ interface Object {
   description: String;
 }
 
-const create = (props: Props) => {
+export const CreateProject = (props: Props) => {
   const {data: session} = useSession();
   const [projectId, setProjectId] = useState("");
 
@@ -43,13 +43,13 @@ const create = (props: Props) => {
       fetch(`https://api.github.com/users/${session?.user?.name}/repos`)
       .then((res) => res.json()));
 
-      if (isLoading) {
-        return "Loading..."
-      }
+      // if (isLoading) {
+      //   return "Loading..."
+      // }
   
-      if (isFetching) {
-        return "Fetching data..."
-      }
+      // if (isFetching) {
+      //   return "Fetching data..."
+      // }
 
   return (
         <Layout>
@@ -72,4 +72,4 @@ const create = (props: Props) => {
   )
 }
 
-export default create
+export default CreateProject
